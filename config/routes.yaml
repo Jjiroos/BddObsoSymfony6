@@ -1,3 +1,7 @@
+#index:
+ #   path: /
+  #  controller: App\Controller\HomeController::homepage
+
 controllers:
     resource: ../src/Controller/
     type: annotation
