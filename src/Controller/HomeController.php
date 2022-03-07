@@ -13,7 +13,7 @@ class HomeController extends AbstractController
      */
     public function homepage(): Response
     {
-        return new Response("<html><h1>Salut la team bien ou quoi ?</h1></html>");
+        return $this->render('home/homepage.html.twig');
     }
 
     /**
@@ -23,7 +23,7 @@ class HomeController extends AbstractController
     {
         $answers = ["toto","tata","j'aime les pâtes","et puis voilà"];
         return $this->render('home/show.html.twig',[
-            'text'=> ucwords(str_replace('-',' ', $text)),
+            'question'=> ucwords(str_replace('-',' ', $text)),
             'answers'=> $answers,
         ]);
     }
