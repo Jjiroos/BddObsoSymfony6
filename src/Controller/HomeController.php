@@ -5,19 +5,25 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="app_homepage")
      */
-    public function homepage(): Response
+    public function homepage(Environment $twigEnvironment): Response
     {
+        /*
+        //exemple plus long qui permet d'identifier comment fonctionne les raccourcis de services dans symfony (avec l'exemple de Twig)
+        $html = $twigEnvironment->render('home/homepage.html.twig');
+        return new Response($html);
+        */
         return $this->render('home/homepage.html.twig');
     }
 
     /**
-     * @Route("/test/{text}")
+     * @Route("/test/{text}", name="app_question_show")
      */
     public function show($text): Response
     {
